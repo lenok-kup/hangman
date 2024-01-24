@@ -1,0 +1,357 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(8, 6, 6);
+    display: flex;
+    justify-content: center;
+    color: beige;
+}
+
+.start-btn {
+    background-color: rgb(4, 146, 13);
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: 20px;
+    border: none;
+    padding: .7em;
+    cursor: pointer;
+    margin-top: 50vh;
+    transition: all 1s linear;
+}
+
+.game-container {
+    background-color: rgb(26, 24, 24);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    margin: 5vh 0;
+    width: 90%;
+    border: 2px solid rgb(253, 252, 252);
+    border-radius: 40px;
+    padding: 2em;
+}
+
+.game-board {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2em;
+}
+
+.game-board__visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.gallows-block {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    background-image: url('gallows.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.game-board__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.game__keyboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.game__letter {
+    font-size: 1.3rem;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(219, 212, 212);
+    color: rgb(28, 26, 26);
+    max-width: 3em;
+    max-height: 3em;
+    cursor: pointer;
+    border: 2px solid rgb(26, 24, 24);
+    border-radius: 10%;
+    transition: all .7s linear;
+}
+
+.game-board__title {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.game-board__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    list-style-type: none;
+}
+
+.game-board__list-item {
+    height: 6vh;
+    width: 3vw;
+    border-bottom: 2px solid #909090;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.game-board__description,
+.game-board__attempt {
+    font-size: 1.3rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+
+.game-board__body-part {
+    position: absolute;
+    opacity: 0;
+    animation: visible-body-part 1s linear forwards;
+}
+
+@keyframes visible-body-part {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.game-board__head {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #909090;
+    border-radius: 50%;
+    right: 0;
+    top: 25%;
+}
+
+.game-board__full-body {
+    width: 3px;
+    height: 80px;
+    background-color: #909090;
+    right: 16%;
+    top: 50%;
+}
+
+.game-board__hand-left {
+    width: 3px;
+    height: 70px;
+    background-color: #909090;
+    transform: rotate(30deg);
+    right: 23%;
+    top: 50%;
+}
+
+.game-board__hand-right {
+    width: 3px;
+    height: 70px;
+    background-color: #909090;
+    transform: rotate(-30deg);
+    right: 9%;
+    top: 50%;
+}
+
+.game-board__leg-left {
+    width: 3px;
+    height: 70px;
+    background-color: #909090;
+    transform: rotate(30deg);
+    right: 22%;
+    top: 69%;
+}
+
+.game-board__leg-right {
+    width: 3px;
+    height: 70px;
+    background-color: #909090;
+    transform: rotate(-30deg);
+    right: 10%;
+    top: 69%;
+}
+
+.modal__block {
+    padding: 2em;
+    width: 80vw;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    border-radius: 20px;
+    background-color: rgb(15, 14, 14);
+    color: beige;
+    text-align: center;
+    margin-top: 30vh;
+}
+
+.modal__title,
+.modal__word {
+    font-size: 2rem;
+}
+
+.modal__btn {
+    padding: 1em;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(4, 111, 4);
+    color: beige;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 1s linear;
+}
+
+.hidden {
+    display: none;
+}
+
+.right--green {
+    background-color: #099a1a;
+    font-weight: 700;
+}
+
+.wrong--red {
+    background-color: red;
+    font-weight: 700;
+}
+
+@media (hover: hover) {
+
+    .start-btn:hover {
+        background-color: rgb(9, 95, 193);
+        color: beige;
+    }
+
+    .modal__btn:hover {
+        background-color: rgb(9, 95, 193);
+        color: beige;
+    }
+
+    .game__letter:hover {
+        background-color: rgb(245, 245, 181);
+        transform: scale(1.1);
+    }
+
+    .modal__btn:hover {
+        background-color: rgb(9, 95, 193);
+    }
+}
+
+@media (max-width: 450px) {
+    .game-board__head {
+        width: 18vw;
+        height: 10vh;
+        top: 27%;
+    }
+
+    .game-board__list {
+        gap: .5em;
+    }
+
+    .game-board__list-item {
+        height: 4vh;
+        font-size: 1.5rem;
+    }
+
+    .gallows-block {
+        width: 90%;
+    }
+
+    .game__letter {
+        font-size: 1rem;
+    }
+
+    .game-board__description,
+    .game-board__attempt {
+        font-size: 1rem;
+    }
+
+    .game-board__full-body {
+        height: 60px;
+        right: 13%;
+        top: 44%;
+    }
+
+    .game-board__hand-left {
+        height: 55px;
+        right: 20%;
+        top: 43%;
+    }
+
+    .game-board__hand-right {
+        height: 55px;
+        right: 6%;
+        top: 43%;
+    }
+
+    .game-board__leg-left {
+        height: 55px;
+        right: 19%;
+        top: 58%;
+    }
+
+    .game-board__leg-right {
+        height: 55px;
+        right: 7%;
+        top: 58%;
+    }
+
+    .modal__title, .modal__word {
+        font-size: 1.5rem;
+    }   
+}
+
+@media (max-width: 600px){
+    .game__letter {
+        width: 35px;
+        padding: .5em;
+    }
+}
+
+
+@media (min-width: 350px) and (max-width: 800px) {
+
+    .game-board {
+        flex-direction: column;
+    }
+
+    .game__keyboard {
+        gap: .5em;
+    }
+}
+
+@media (min-width: 1000px) {
+    .game-board {
+        width: 80%;
+    }
+
+    .modal__block {
+        width: 70vw;
+    }
+}
+
